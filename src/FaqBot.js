@@ -12,11 +12,11 @@ function FaqBot() {
 
   const handleSubmit = async (event) => {
     if (inputValue) {
-      setMessages(messages => [...messages, { user: 'supplier', text: inputValue }]); 
+      setMessages(messages => [{ user: 'supplier', text: inputValue }, ...messages]); 
       getBotResponse(inputValue)
         .then(response => {
           if (response.data)
-            setMessages(messages => [...messages, { user: 'Meesho AI', text: response.data.response.text }]);
+            setMessages(messages => [{ user: 'Meera', text: response.data.response.text }, ...messages]);
         });
     }
     setInputValue('');
@@ -31,7 +31,7 @@ function FaqBot() {
   return (
     <>
       <header className="App-header">
-        <h2>How can I help you?</h2>
+        <h2>Speak with our AI powered assistant, Meera</h2>
       </header>
       <div className="container"></div>
 
